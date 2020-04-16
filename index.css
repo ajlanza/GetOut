@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    /* align-content: center; */
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+nav {
+    background-color: darkgray; 
+    width: 100%; 
+    height: 5vh;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputForm{
+    background-color: lightgray;
+    width: 100%; 
+    height: 5vh;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main, section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.map {
+    background-color: gray;
+    height: 50vh;    
+    width: 100%;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.details {
+    display: none;
+}
+.results {
+    background-color: darkgray;
+    width: 100%; 
+    height: 40vh;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+@media only screen and (min-width: 351px) {
+    main {
+      flex-flow: row;
+      width: 100%;
+    }
+    .map {
+        width: 100%;
+    }
+    .results {
+        width: 100%;
+    }
+    .inputForm {
+        width: 100%;
+    }
+    .details {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .containerInputMap {
+      display: flex;
+      flex-direction: column-reverse;
+      width:100%;
+    }
+    .containerDetails {
+      display: flex;
+      flex-direction:  row;
+      width: 100%
+    }
+  }
