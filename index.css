@@ -13,87 +13,50 @@ body {
     align-content: center;
     justify-content: center;
 }
-nav {
-    background-color: darkgray; 
-    width: 100%; 
-    /* height: 5vh;   */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.inputForm{
+.inputForm {
     background-color: lightgray;
-    width: 100%; 
-    /* height: 5vh;   */
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-main, section {
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+section {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
 }
 .map {
-    background-color: gray;
-    /* height: 50vh;     */
-    width: 100%;   
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    background-color: red;
 }
-/* .details {
-    display: none;
-} */
 .results {
     background-color: darkgray;
+}
+
+
+/* Display for larger screens */
+@media only screen and (min-width: 351px) {
+  main {
+    flex-flow: row;
     width: 100%; 
-    /* height: 40vh;   */
+  }
+  .containerInputMap {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 400px;
+  }
+  .inputForm {
+    height: 50px;
+  }
+  .results {
+    width: 100%;
+  }
+  .details {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.showMobile{
-    display: flex;
-}
-.showLarge{
-    display: none;
-}
-
-@media only screen and (min-width: 351px) {
-    main {
-      flex-flow: row;
-      width: 100%;
-    }
-    .map {
-        width: 100%;
-    }
-    .results {
-        width: 100%;
-    }
-    .inputForm {
-        width: 100%;
-    }
-    .details {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .containerInputMap {
-      display: flex;
-      flex-direction: column-reverse;
-      width:100%;
-    }
-    .containerDetails {
-      display: flex;
-      flex-direction:  row;
-      width: 100%
-    }
-    .showMobile {
-        display: none;
-    }
-    .showLarge {
-        display: flex;
-    }
   }
+}
