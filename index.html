@@ -12,15 +12,25 @@
     <main>
       <div class=containerDetails>
         <div class="containerInputMap">
-          <section class="inputForm">Input form</section>
-          <section role="map" class="map">Results Map</section>
+          <section class="inputForm">
+          <form>
+            <label for="location">What location would you like to search?</label>
+            <input type="text" value="San Francisco" name="location" id="location">
+            <input type="submit" value="Submit">
+          </form>
+          </section>
+          <section role="map" class="map" id="map">Results Map</section>
         </div>
-        <section class="details">Event Details</section>
+        <section class="details" id="details">Event Details</section>
       </div>
     </main>
-    <section role="results" class="results">Results list of events
-        <p>new line</p>
-        <p>new line</p><p>new line</p><p>new line</p><p>new line</p><p>new line</p>
+    <section role="results" class="results">
+      <ul class="events" id="events">
+        <!-- <li class="eventResult">Please enter a search location.</li> -->
+      </ul>
     </section> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
+    <script src="index.js"></script>
 </body>
 </html>
