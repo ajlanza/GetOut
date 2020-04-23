@@ -8,7 +8,7 @@ function watch() {
    }
 
 function getEvents(loc) {
-    const baseURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=TICKET_MASTER_KEY';
+    const baseURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=9ILySSY2YO4e93LLEXVkLXAO93uY4YC2';
     const newURL = baseURL.concat(`&city=${loc}`);
     fetch(newURL)
       .then(response => {
@@ -27,7 +27,7 @@ function displayResults(responseJson){
     // hits is the number of events returned from the search
      let hits = responseJson._embedded.events.length;
     // Display each of our events in a list item
-    document.getElementById("events").innerHTML='';
+    document.getElementById("events").innerHTML= `Select an event to see the venue.`;
     for (let i = 0; i < hits; i++){
         let eventId = responseJson._embedded.events[i].id;
         let eventName = responseJson._embedded.events[i].name;
@@ -38,17 +38,17 @@ function displayResults(responseJson){
 }
 
 // MAP JAVASCRIPT
-mapboxgl.accessToken = 'MAPBOX_KEY';
+mapboxgl.accessToken = 'pk.eyJ1IjoicmVkcnVtb3IiLCJhIjoiY2s5OTU2ZXZoMDh6bDNtbng4Mm54d3NuYSJ9.SKElWJx3uVl8sFBqvHskxA';
   let map = new mapboxgl.Map({
     container: 'map', // Container ID
     style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
-    center: [-122.021797, 37.263599], // Starting position [lng, lat]
-    zoom: 12, // Starting zoom level
+    center: [-122.431297, 37.773972], // Starting position [lng, lat]
+    zoom: 10, // Starting zoom level
   });
 // MAP MARKER
-//   let marker = new mapboxgl.Marker() // initialize a new marker
-//   .setLngLat([-122.021797, 37.263599]) // Marker [lng, lat] coordinates
-//   .addTo(map); // Add the marker to the map
+   // let marker = new mapboxgl.Marker() // initialize a new marker
+   // .setLngLat([-122.021797, 37.263599]) // Marker [lng, lat] coordinates
+   // .addTo(map); // Add the marker to the map
   
 function updateMap(lat, lon) {
     document.getElementById('map').innerHTML="";
@@ -56,12 +56,12 @@ function updateMap(lat, lon) {
         container: 'map', // Container ID
         style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
         center: [lon, lat], // Starting position [lng, lat]
-        zoom: 12, // Starting zoom level
+        zoom: 14, // Starting zoom level
   });
 }
 
 function getDetails(name, id) {
-    const baseURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=TICKET_MASTER_KEY';
+    const baseURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=9ILySSY2YO4e93LLEXVkLXAO93uY4YC2';
     const newURL = baseURL.concat(`&id=${id}`);
     fetch(newURL)
       .then(response => {
