@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
 }
+html {
+    height: 100%;
+}
 body {
     margin: 0;
     padding: 0;
@@ -13,23 +16,36 @@ body {
     align-content: center;
     justify-content: center;
 }
-.inputForm {
-    background-color: lightgray;
-}
 main {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
 }
-section {
+.containerInputMap {
+    width: 100%;
+    height: 100%;
+  }
+/* section {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
+} */
+.inputForm {
+    background-color: lightgray;
+}
+.map{
+    height: 100%;
+}
+.details {
+    display: flex;
 }
 .results {
     background-color: darkgray;
+    display: flex;
+    width: 100%;
+    height: 50%;
 }
 input {
     cursor: pointer;
@@ -62,5 +78,6 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
 }

@@ -43,12 +43,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicmVkcnVtb3IiLCJhIjoiY2s5OTU2ZXZoMDh6bDNtbng4M
     container: 'map', // Container ID
     style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
     center: [-122.431297, 37.773972], // Starting position [lng, lat]
-    zoom: 10, // Starting zoom level
+    zoom: 12, // Starting zoom level
   });
 // MAP MARKER
-   // let marker = new mapboxgl.Marker() // initialize a new marker
-   // .setLngLat([-122.021797, 37.263599]) // Marker [lng, lat] coordinates
-   // .addTo(map); // Add the marker to the map
+    let marker = new mapboxgl.Marker() // initialize a new marker
+    .setLngLat([-122.431297, 37.773972]) // Marker [lng, lat] coordinates
+    .addTo(map); // Add the marker to the map
   
 function updateMap(lat, lon) {
     document.getElementById('map').innerHTML="";
@@ -58,6 +58,9 @@ function updateMap(lat, lon) {
         center: [lon, lat], // Starting position [lng, lat]
         zoom: 14, // Starting zoom level
   });
+  marker = new mapboxgl.Marker() // initialize a new marker
+    .setLngLat([lon, lat]) // Marker [lng, lat] coordinates
+    .addTo(map); // Add the marker to the map
 }
 
 function getDetails(name, id) {

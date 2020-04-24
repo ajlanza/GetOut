@@ -3,30 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="index.css">
+    <link type="text/css" rel="stylesheet" href="index.css"/>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
     <title>Get Out</title>
 </head>
 
 <body>
     
     <main>
-      
         <div class="containerInputMap">
-          <section class="inputForm">
-          <form>
+          
+          <form class="inputForm">
             <label for="location">What location would you like to search?</label>
             <input type="text" value="San Francisco" name="location" id="location">
             <input type="submit" value="Submit">
           </form>
-          </section>
+          
           <section role="map" class="map" id="map"></section>
+
         </div>
+
         <section class="details" id="details">Event Details</section>
-      </div>
+      
     </main>
+    
     <section role="results" class="results">
       <ul class="events" id="events"></ul>
-    </section> 
+    </section>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
     <script src="index.js"></script>
