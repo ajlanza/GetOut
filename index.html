@@ -14,30 +14,31 @@
 </head>
 
 <body>
+    <header>
+        <h1>Get Out</h1>
     
+      </header>
+
     <main>
         <div class="containerInputMap">
-          
-          <form class="inputForm">
-            <label for="location">What location would you like to search?</label>
-            <input type="text" value="San Francisco" name="location" id="location">
-            <input type="submit" value="Submit">
-          </form>
-          
           <section role="map" class="map" id="map"></section>
-
         </div>
-
-        <section class="details" id="details">Enter a city name to see a list of shows in that area.</section>
-      
+        <section class="details" id="details">
+          <h2>Get out and see a show,</h2>
+        </p>Enter a city name and click submit to see a list of shows in that area. You can then click on a specific show to see where the venue is located on a map as well as that information in text.</p>
+        </section>
     </main>
-    
+    <form>
+      <label for="location">Enter a city to search for shows:</label>
+      <input type="text" value="Albany" name="location" id="location">
+      <input type="submit" value="Submit">
+    </form>
     <section role="results" class="results">
       <ul class="events" id="events"></ul>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
