@@ -27,7 +27,7 @@ function displayResults(responseJson){
     // hits is the number of events returned from the search
      let hits = responseJson._embedded.events.length;
     // Display each of our events in a list item
-    document.getElementById("events").innerHTML= `Select an event to see the venue.`;
+    document.getElementById("events").innerHTML= `Select an event to see the venue.<br><br>`;
     for (let i = 0; i < hits; i++){
         let eventId = responseJson._embedded.events[i].id;
         let eventName = responseJson._embedded.events[i].name;
@@ -82,7 +82,10 @@ function getDetails(name, id) {
 function displayDetails(responseJson) {
     let venue = responseJson._embedded.events[0]._embedded.venues[0].name;
     let name = responseJson._embedded.events[0].name;
+    let bandImage = responseJson._embedded.events[0].images[5].url;
     let container = document.getElementById("details");
     container.innerHTML=`<h3>${name} will be performing at ${venue}.</h3>`;
+    container.style.backgroundImage = `url('${bandImage}')`;
+    container.style.backgroundSize = `cover`;
 }
 $(watch);
