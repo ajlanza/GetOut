@@ -45,6 +45,7 @@ main {
 }
 .events {
     font-family: "Roboto", sans-serif;
+    padding-bottom: 10px;
 }
 li {
     cursor: pointer;

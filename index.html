@@ -16,8 +16,7 @@
 <body>
     <header>
         <h1>Get Out</h1>
-    
-      </header>
+    </header>
 
     <main>
         <div class="containerInputMap">
@@ -25,14 +24,21 @@
         </div>
         <section class="details" id="details">
           <h2>Get out and see a show,</h2>
-        </p>Enter a city name and click submit to see a list of shows in that area. You can then click on a specific show to see where the venue is located on a map as well as that information in text.</p>
+          </p>Enter a city name or artist to see a list of shows. You can then click on a specific show to see where the venue is located on a map as well as that information in text.</p>
         </section>
     </main>
-    <form>
+
+    <form id="locationForm">
       <label for="location">Enter a city to search for shows:</label>
       <input type="text" value="Albany" name="location" id="location">
-      <input type="submit" value="Submit">
+      <input type="submit" value="Search Location">
     </form>
+    <form id="keywordForm">
+      <label for="artist">Enter an artist to search for shows:</label>
+      <input type="text" value="Ministry" name="artist" id="artist">
+      <input type="submit" value="Search Keyword">
+    </form>
+
     <section role="results" class="results">
       <ul class="events" id="events"></ul>
     </section>

@@ -1,13 +1,24 @@
+// replace mapboxToken with your mapbox token from https://www.mapbox.com/
+// replace apikey with your ticketmaster api key from https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
+
+const mapboxToken = 'REPLACE-WITH-YOUR-TOKEN';
+const apikey = 'REPLACE-WITH-YOUR-TOKEN';
+
 function watch() {
-    $('form').submit(event =>{
+    $('#locationForm').submit(event =>{
         event.preventDefault();
-        const myLocation = $('#location').val();
+        const myLocation = $('#location').val();      
         getEvents(myLocation);
     })
+    $('#keywordForm').submit(event =>{
+      event.preventDefault();
+      const myArtist = $('#artist').val();
+      getKeyword(myArtist);
+  })
    }
 // Get events from tickemaster for the location the user has chosen.
 function getEvents(loc) {
-    const baseURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=9ILySSY2YO4e93LLEXVkLXAO93uY4YC2';
+    const baseURL = `https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=${apikey}`;
     const newURL = baseURL.concat(`&city=${loc}`);
     fetch(newURL)
       .then(response => {
@@ -19,7 +30,23 @@ function getEvents(loc) {
           }
     })
       .then(responseJson => displayResults(responseJson))
-      .catch(err => alert(`That location didn't seem to work. Please try again with a city name. ${err.message}`));
+      .catch(err => alert(`The location "${loc}" had no results. Please try again with a different city name.`));
+    }
+
+// Get events by keyword
+function getKeyword(keyword) {
+    const URL = `https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&keyword=${keyword}&apikey=${apikey}`;
+    fetch(URL)
+      .then(response => {
+          if (response.ok) {
+              return response.json();
+          }
+          else {
+            throw new Error(response.statusText);
+          }
+    })
+      .then(responseJson => displayResults(responseJson))
+      .catch(err => alert(`"${keyword}" didn't have any results. Please try again.`));
     }
 
 // Show the user the events returned by ticketmaster.    
@@ -32,12 +59,12 @@ function displayResults(responseJson){
         let eventName = responseJson._embedded.events[i].name;
         let eventLon = responseJson._embedded.events[i]._embedded.venues[0].location.longitude;
         let eventLat = responseJson._embedded.events[i]._embedded.venues[0].location.latitude;
-        $("#events").append(`<li onclick="updateMap(${eventLat}, ${eventLon}); getDetails('${eventName}', '${eventId}')">${eventName}</li>`);
+        $("#events").append(`<li onclick="updateMap(${eventLat}, ${eventLon}); getDetails('${eventId}')">${eventName}</li>`);
     }
 }
 
-// Set up our map with mapbox API.
-mapboxgl.accessToken = 'pk.eyJ1IjoicmVkcnVtb3IiLCJhIjoiY2s5OTU2ZXZoMDh6bDNtbng4Mm54d3NuYSJ9.SKElWJx3uVl8sFBqvHskxA';
+// Set up our map with mapbox API and initial location.
+mapboxgl.accessToken = mapboxToken;
   let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11', 
@@ -64,8 +91,8 @@ function updateMap(lat, lon) {
 }
 
 // Submit a request to ticketmaster API for the event the user has chosen.
-function getDetails(name, id) {
-    const baseURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=9ILySSY2YO4e93LLEXVkLXAO93uY4YC2';
+function getDetails(id) {
+    const baseURL = `https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=${apikey}`;
     const newURL = baseURL.concat(`&id=${id}`);
     fetch(newURL)
       .then(response => {
