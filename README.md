@@ -1,5 +1,5 @@
 # Get Out
-You can play around with a live version of the app here: https://ajlanza.github.io/GetOut/
+You can play around with a live version of the app here: https://get-out.vercel.app/
 
 Get Out asks the user for a city and then displays a list of shows scheduled for that area. 
 The user can click an event and a map element will show where the venue is. A section of the page will also update with the name of the venue and an image of the band that the user clicked.
